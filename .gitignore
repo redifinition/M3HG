@@ -1,0 +1,16 @@
+wandb/
+pretrained_models/
+processed/
+output/
+utils/__pycache__/data_loader.cpython-310.pyc
+utils/__pycache__/data_loader.cpython-37.pyc
+utils/__pycache__/dataset.cpython-310.pyc
+utils/__pycache__/eval_func.cpython-310.pyc
+utils/__pycache__/global_variables.cpython-310.pyc
+data/videos/
+# 忽略所有 .pyc 文件
+*.pyc
+# 忽略 __pycache__ 目录及其内容
+__pycache__/
+data/ECF/videos/
+utils/ECF_RoBERTa/

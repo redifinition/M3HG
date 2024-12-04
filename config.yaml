@@ -1,0 +1,56 @@
+data_dir: "data"  # The input data dir. Should contain the .tsv files (or other data files) for the task.
+network: 'MECPEC' # The network to use.
+textual_pretrain_model_dir: "pretrained_models/textual/RoBERTa"  # The input model dir of pre-trained model.
+# audio_pretrain_model_dir: "pretrained_models/audio/wav2vec2-base-960h"  # The input model dir of the audio pre-trained model.
+video_pretrain_model_dir: "pretrained_models/video/VideoMAE"  # The input model dir of the video pre-trained model.
+video_dir: "data/ECF/videos"  # The input video dir.
+# pretrain_model_dir: "pretrained_models/bert-base-cased"  # The input model dir of pre-trained model.
+output_dir: "output"  # The output directory where the model checkpoints will be written.
+pretrain_config_file: "config.json"  # The config json file corresponding to the pre-trained model. This specifies the model architecture.
+vocab_file: "vocab.json"  # The vocabulary file that the model was trained on.
+data_name: "ECF"  # The name of the dataset to train.
+# pretrain_encoder_type: "BERT"  # The type of pre-trained model.
+pretrain_encoder_type: "RoBERTa"  # The type of pre-trained model.
+init_pretrain_checkpoint: "pytorch_model.bin"  # Initial checkpoint (usually from a pre-trained model).
+do_lower_case: false  # Whether to lower case the input text. True for uncased models, False for cased models.
+do_train: true  # Whether to run training.
+do_eval: true  # Whether to run eval on the test set.
+max_speaker_num: 626  # The maximum total speaker number. ECF:312
+max_seq_length: 512  # The maximum total input sequence length after WordPiece tokenization. Sequences longer than this will be truncated, and sequences shorter than this will be padded.
+num_train_epochs: 50  # Total number of training epochs to perform.
+train_batch_size: 8  # Total batch size for training.
+eval_batch_size: 8  # Total batch size for eval.
+learning_rate: 0.00005  # The initial learning rate for Adam.
+gradient_accumulation_steps: 2  # Number of updates steps to accumulate before performing a backward/update pass.
+warmup_proportion: 0.1  # Proportion of training to perform linear learning rate warmup for. E.g., 0.1 = 10% of training.
+no_cuda: false  # Whether not to use CUDA when available.
+local_rank: -1  # local_rank for distributed training on gpus.
+save_checkpoints_steps: 1000  # How often to save the model checkpoint.
+seed: [666,999,2023,13,1]  # random seed for initialization.999
+optimize_on_cpu: false  # Whether to perform optimization and keep the optimizer averages on CPU.
+fp16: false  # Whether to use 16-bit float precision instead of 32-bit.
+loss_scale: 128  # Loss scaling, positive power of 2 values can improve fp16 convergence.
+resume: false  # Whether to resume the training.
+f1eval: true  # Whether to use f1 for dev evaluation during training.
+mlp_layers: 2
+dropout: 0.1
+hidden_dim: 512
+model_metric: 'weighted_avg_f1_6'
+K: 3 # The hyperparameter of the graph
+gat_layers: 2
+num_graph_attention_heads: 4
+pos_emb_dim : 50
+rel_pos_k : 12
+modality: ['textual']
+# audio_extractor: 'wav2vec2'
+audio_feature_dim: 6373
+rnn_drop: 0.15
+rnn_n_layers: 2
+rnn_type: 'gru'
+use_vanilla: False
+use_rnnpack: False
+cross_num_head: 8
+cross_drop: 0.4
+cross_n_layers: 5
+audio_features_pkl_path: 'data/ECF/AudioFeatures.pkl'
+video_features_pkl_path: 'data/ECF/VisualFeatures.pkl'
