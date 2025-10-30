@@ -1,5 +1,6 @@
 # M3HG: Multimodal, Multi-scale, and Multi-type Node Heterogeneous Graph for Emotion Cause Triplet Extraction in Conversations
-
+## Video and Audio data
+https://pan.baidu.com/s/1OHugPK3dYYagRZaBFHX4_w?pwd=eedx 提取码: eedx 
 ## Environment
 
 - Python 3.10.14
